@@ -1,4 +1,4 @@
-package ua.dev.webnauts.profile
+package ua.dev.webnauts.compose_navigation_test_recompotition.screen.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,17 +23,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import kotlinx.coroutines.flow.collect
 import ua.dev.webnauts.compose_navigation_test_recompotition.AppState
 import ua.dev.webnauts.compose_navigation_test_recompotition.R
-import ua.dev.webnauts.compose_navigation_test_recompotition.database.UserDatabaseManagement
 import ua.dev.webnauts.compose_navigation_test_recompotition.navigation.Graph
 import ua.dev.webnauts.compose_navigation_test_recompotition.ui.compose_components.Button.AppButton
 import ua.dev.webnauts.compose_navigation_test_recompotition.ui.compose_ui.top_bars.DefaultTopBar
 import ua.dev.webnauts.compose_navigation_test_recompotition.ui.theme.customShapes
 import ua.dev.webnauts.compose_navigation_test_recompotition.ui.theme.spacing
-import ua.dev.webnauts.profile.theme.customShapes
-import ua.dev.webnauts.profile.theme.spacing
 
 @Composable
 fun ProfileScreen(
@@ -80,9 +76,9 @@ fun ProfileScreen(
                 }
 
                 Column {
-                    Text(text = "Name: ${user?.user?.fullName}", style = MaterialTheme.typography.bodyLarge)
-                    Text(text = "Email: ${user?.user?.email}", style = MaterialTheme.typography.bodyLarge)
-                    Text(text = "Phone: ${user?.user?.phone}", style = MaterialTheme.typography.bodyLarge)
+                    Text(text = "Name: ${user?.user?.fullName}", style = MaterialTheme.typography.body1)
+                    Text(text = "Email: ${user?.user?.email}", style = MaterialTheme.typography.body1)
+                    Text(text = "Phone: ${user?.user?.phone}", style = MaterialTheme.typography.body1)
                 }
             }
 

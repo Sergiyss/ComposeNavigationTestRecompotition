@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "ua.dev.webnauts.cleanproject";
+option java_package = "ua.dev.webnauts.compose_navigation_test_recompotition";
 option java_multiple_files = true;
 
 message SettingsProto {
