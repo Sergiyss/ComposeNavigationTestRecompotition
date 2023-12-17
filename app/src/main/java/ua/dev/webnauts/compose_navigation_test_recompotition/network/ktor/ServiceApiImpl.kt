@@ -8,6 +8,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import ua.dev.webnauts.compose_navigation_test_recompotition.network.data.list_photos.PhotosResponse
 import ua.dev.webnauts.compose_navigation_test_recompotition.network.data.list_photos.PhotosResponseItem
+import ua.dev.webnauts.compose_navigation_test_recompotition.network.data.posts_comments.PostCommentsItem
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,6 +30,14 @@ class ServiceApiImpl @Inject constructor(
     override suspend fun photoss(): NetworkResponse<List<PhotosResponseItem>> {
         return safeCall(context) {
             client.get(HttpRoutes.photoss) {
+                contentType(ContentType.Application.Json)
+            }
+        }
+    }
+
+    override suspend fun postsComments(): NetworkResponse<List<PostCommentsItem>> {
+        return safeCall(context) {
+            client.get(HttpRoutes.comments) {
                 contentType(ContentType.Application.Json)
             }
         }

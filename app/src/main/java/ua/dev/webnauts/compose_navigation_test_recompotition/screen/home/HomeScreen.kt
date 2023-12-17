@@ -33,8 +33,8 @@ fun HomeScreen(
     appState: AppState,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    val sss  by viewModel.getPokemonDitto
-    val sss2  by viewModel.getPokemonDitto2
+
+    val sss by viewModel.getPokemonDitto2
     LaunchedEffect(key1 = Unit, block = {
         viewModel.getPokemonDitto()
 
@@ -46,54 +46,13 @@ fun HomeScreen(
     horizontalAlignment = Alignment.Start,
     ) {
 
-        println("asaaaaa --<<< $sss")
+
+
 
         when(sss){
 
             is NetworkResponse.Success -> {
-                (sss as NetworkResponse.Success<PhotosResponseItem>).data.let {
-
-                    Column {
-                        Text(text = it.title)
-                        Image(
-                            painter = rememberAsyncImagePainter(
-                                ImageRequest.Builder(LocalContext.current)
-                                    .data(data = it.url)
-                                    .apply(block = fun ImageRequest.Builder.() {
-                                        size(Size.ORIGINAL)
-                                    }).build(),
-
-                            ),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxWidth(1f)
-                                .height(300.dp),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
-                }
-            }
-            is NetworkResponse.Loading -> {
-                Box(modifier = Modifier
-                    .fillMaxSize(1f)
-                    .align(Alignment.CenterHorizontally)) {
-                    CircularProgressIndicator()
-                }
-            }
-            else->{
-                Box(modifier = Modifier
-                    .fillMaxSize(1f)
-                    .align(Alignment.CenterHorizontally)) {
-                    Text(text = "ERROR")
-                }
-            }
-        }
-
-
-        when(sss2){
-
-            is NetworkResponse.Success -> {
-                (sss2 as NetworkResponse.Success<List<PhotosResponseItem>>).data?.let {datas->
+                (sss as NetworkResponse.Success<List<PhotosResponseItem>>).data?.let {datas->
 
                     Column(modifier = Modifier) {
 
@@ -112,7 +71,7 @@ fun HomeScreen(
                                     contentDescription = null,
                                     modifier = Modifier
                                         .fillMaxWidth(1f)
-                                        .height(300.dp),
+                                        .height(100.dp),
                                     contentScale = ContentScale.Crop
                                 )
                             }

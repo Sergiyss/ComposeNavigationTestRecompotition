@@ -10,4 +10,6 @@ object HttpRoutes {
     const val photos = "$BASE_URL/photos/10"
 
     const val photoss = "$BASE_URL/albums/1/photos"
+
+    const val comments = "$BASE_URL/posts/1/comments"
 }
